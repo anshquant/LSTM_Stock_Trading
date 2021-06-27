@@ -1,0 +1,8 @@
+# LSTM_Stock_Trading
+*Predicting stock prices using LSTM networks and implmeneting them in equities and derivatives trading strategy* <br />
+## Stock Price prediction using LSTM Networks
+We make use of LSTM Networks and try to predict the stock price. The idea is to use previous 'n' days to try to get the prediction of the (n+1)th day. When we try to do this we see the predicted price does a good job to follow the trend but in cases of increasing volatility in the actual price the predicted price underpredicts the actual performance of the market. This logic was the inspiration to use the predicted price as a trading signal and to trade off **crossovers** between the predicted price and actual price. <br />
+## Generating prediction intervals
+From the error between the predicted price and actual price of a stock we can model a prediction interval which would try to provide a upper and lower bound limit to the market's performance in times of abnormal changes in price. We have shown how that looks on the images for a few tickers in the *Graphics* branch. Since on a daily data frame the time span is too wide and thus the stocks price changes a great deal. However, if we reduce the time frame, we can make the changes in stock price smaller and thus also come up with a mean reverting strategy. This could be quite useful for intraday trading. <br />
+## Current research: Exploring the possibility for a derivatives trading strategy.
+We could also alter the model structure for the Neural Network slightly by instead of predicting for the next day, we predict for the next week or month. By generating prediction intervals for that scenario, we can try to implement a straddle selling strategy using the upper and lower limits of the prediction intervals.
